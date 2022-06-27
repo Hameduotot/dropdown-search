@@ -3,17 +3,36 @@ import InputListData from "../InputListData/InputListData";
 import UlListData from "../UlListData/UlListData";
 import { DivTagContainer } from "./styled";
 
-function DataList({ listData, idList }) {
+function DataList({ listData }) {
   const [text, setText] = useState("");
+  const [filterCity, setfilterCity] = useState([]);
 
+  console.log(filterCity);
+
+  function handleOnChanged(e) {
+    setText(e.target.value);
+  }
+  function handleOnKeyUp(e) {
+    const value = e.target.value.toLowerCase();
+    const filterList = listData.filter((cityObj) => {
+      if (value !== "" && cityObj.city.toLowerCase().indexOf(value) > -1) {
+        return cityObj;
+      }
+    });
+    setfilterCity(filterList);
+  }
   function handleClick(cityText) {
     setText(cityText);
   }
 
   return (
-    <DivTagContainer className="datalist-container">
-      <InputListData />
-      <UlListData listData handleClick={handleClick} />
+    <DivTagContainer>
+      <InputListData
+        handleInputChanged={handleOnChanged}
+        handleOnKeyUp={handleOnKeyUp}
+        textValue={text}
+      />
+      <UlListData listData={filterCity} handleClick={handleClick} />
     </DivTagContainer>
   );
 }

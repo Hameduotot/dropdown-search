@@ -1,11 +1,10 @@
 import "./index.css";
 import DataList from "./components/DataList/DataList";
-const cityListData = ["tehran", "tehran1", "tehdh", "tehfff", "tehggg"];
-
+import CityList from "./dist/fakerListData";
 function App() {
   return (
     <div>
-      <DataList listData={cityListData} idList={"citylist"} />
+      <DataList listData={CityList} />
     </div>
   );
 }

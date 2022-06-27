@@ -1,10 +1,14 @@
-import React from 'react'
-import { InputTag } from './styled'
+import React from "react";
+import { InputTag } from "./styled";
 
-function InputListData() {
+function InputListData({ handleInputChanged, textValue, handleOnKeyUp }) {
   return (
-    <InputTag  onChange={handleInputChanged} />
-  )
+    <InputTag
+      onChange={handleInputChanged}
+      value={textValue}
+      onKeyUp={handleOnKeyUp}
+    />
+  );
 }
 
-export default InputListData
+export default InputListData;
