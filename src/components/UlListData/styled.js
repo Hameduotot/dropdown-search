@@ -6,5 +6,8 @@ const UlTag = styled.ul`
   width: auto;
   height: 200px;
   overflow-y: scroll;
+  list-style: none;
+  padding-left: 0px;
+  margin: 0;
 `;
 export { UlTag };

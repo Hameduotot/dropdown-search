@@ -9,7 +9,7 @@ function UlListData({ listData, handleClick }) {
         return (
           <LiItems
             key={objCity.id}
-            objCity
+            objCity={objCity}
             handleLiClick={() => handleClick(objCity.city)}
           />
         );

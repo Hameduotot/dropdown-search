@@ -7,8 +7,6 @@ function DataList({ listData }) {
   const [text, setText] = useState("");
   const [filterCity, setfilterCity] = useState([]);
 
-  console.log(filterCity);
-
   function handleOnChanged(e) {
     setText(e.target.value);
   }
