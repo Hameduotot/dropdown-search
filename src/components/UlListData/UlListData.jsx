@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../context/Context";
 import LiItems from "../LiItems/LiItems";
 import { UlTag } from "./styled";
 
-function UlListData({ listData, handleClick }) {
+function UlListData() {
+  const { state, dispatch } = useContext(Context);
+  const { city } = state;
+
+  function handleClick(data) {
+    dispatch({ type: "input/setInputText", payload: data });
+  }
   return (
     <UlTag>
-      {listData.map((objCity) => {
+      {city?.map((objCity) => {
         return (
           <LiItems
             key={objCity.id}
