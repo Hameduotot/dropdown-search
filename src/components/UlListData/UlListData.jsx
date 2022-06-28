@@ -7,19 +7,10 @@ function UlListData() {
   const { state, dispatch } = useContext(Context);
   const { city } = state;
 
-  function handleClick(data) {
-    dispatch({ type: "input/setInputText", payload: data });
-  }
   return (
     <UlTag>
-      {city?.map((objCity) => {
-        return (
-          <LiItems
-            key={objCity.id}
-            objCity={objCity}
-            handleLiClick={() => handleClick(objCity.city)}
-          />
-        );
+      {city.map((objCity) => {
+        return <LiItems key={objCity.id} objCity={objCity} />;
       })}
     </UlTag>
   );

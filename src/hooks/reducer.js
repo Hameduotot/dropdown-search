@@ -6,12 +6,14 @@ const Reducer = (state, action) => {
       return {
         ...state,
         city: [
-          ...state.city.filter((objCity) => {
+          ...CityList.filter((objCity) => {
             const value = action.palyload;
+            console.log("gh");
             if (
               value !== "" &&
               objCity.city.toLowerCase().indexOf(value) > -1
             ) {
+              console.log("ii");
               return objCity;
             }
           }),
